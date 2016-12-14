@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="opa-UZ-MOd">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xta-Bf-TLS">
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XM0-HO-jsk" appends="YES" id="22W-1a-xmB"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xta-Bf-TLS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7d3-4I-dMc"/>
+                            <constraint firstItem="xta-Bf-TLS" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="QKf-6V-LRe"/>
+                            <constraint firstItem="xta-Bf-TLS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WFt-RL-cr3"/>
+                            <constraint firstItem="xta-Bf-TLS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="dNm-gs-79p"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aCK-hM-0ge"/>
+                    <connections>
+                        <outlet property="mapView" destination="xta-Bf-TLS" id="ziQ-bT-gab"/>
+                        <segue destination="RjV-He-eil" kind="show" identifier="DetailViewController" id="ssg-82-95w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="XM0-HO-jsk">
+                    <connections>
+                        <action selector="mapLongPressed:" destination="BYZ-38-t0r" id="MyY-fE-T6r"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1076" y="105.69715142428787"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="DnN-s7-8vH">
+            <objects>
+                <viewController id="RjV-He-eil" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XjV-vn-5KI"/>
+                        <viewControllerLayoutGuide type="bottom" id="5zG-Sq-abt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SbI-3d-64D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOs-mi-l2X">
+                                <state key="normal" title="Add Reminder"/>
+                                <connections>
+                                    <action selector="createReminder:" destination="RjV-He-eil" eventType="touchUpInside" id="GrS-TX-qFY"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter reminder title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGz-BD-8x4">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter radius" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0Q-wF-edu">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter priority (1-3)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6x-c3-Wdv">
+                                <frame key="frameInset" minX="39" minY="168" width="235" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pGz-BD-8x4" secondAttribute="trailing" constant="85" id="8S0-dY-4c7"/>
+                            <constraint firstItem="pGz-BD-8x4" firstAttribute="top" secondItem="XjV-vn-5KI" secondAttribute="bottom" constant="28" id="8d1-5l-a4h"/>
+                            <constraint firstItem="sOs-mi-l2X" firstAttribute="leading" secondItem="SbI-3d-64D" secondAttribute="leading" constant="142" id="K6j-jf-3rQ"/>
+                            <constraint firstItem="L0Q-wF-edu" firstAttribute="trailing" secondItem="pGz-BD-8x4" secondAttribute="trailing" id="LzL-3l-ORD"/>
+                            <constraint firstItem="sOs-mi-l2X" firstAttribute="top" secondItem="XjV-vn-5KI" secondAttribute="bottom" constant="237" id="Vwc-YU-h22"/>
+                            <constraint firstItem="L0Q-wF-edu" firstAttribute="top" secondItem="pGz-BD-8x4" secondAttribute="bottom" constant="8" symbolic="YES" id="hn1-b5-Nrn"/>
+                            <constraint firstItem="L0Q-wF-edu" firstAttribute="leading" secondItem="pGz-BD-8x4" secondAttribute="leading" id="jqa-cP-4Vz"/>
+                            <constraint firstItem="pGz-BD-8x4" firstAttribute="leading" secondItem="SbI-3d-64D" secondAttribute="leadingMargin" constant="23" id="s1T-r7-fr7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="priority" destination="Z6x-c3-Wdv" id="h0c-8S-Sxp"/>
+                        <outlet property="radius" destination="L0Q-wF-edu" id="ygu-v1-V0k"/>
+                        <outlet property="reminderTitle" destination="pGz-BD-8x4" id="7Vq-9n-K9t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ix2-K9-mJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1845.5999999999999" y="105.69715142428787"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U5u-Xz-pwC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="opa-UZ-MOd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qXe-HI-9Nd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HrT-6h-cPY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ysi-3d-HLE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="105.69715142428787"/>
+        </scene>
+    </scenes>
+</document>
