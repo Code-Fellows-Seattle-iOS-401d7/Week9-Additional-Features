@@ -67,6 +67,7 @@
     //assuming some error code returned from an execution
     NSNumber *errorCode = @200;
 
+    //Not every case needs to contain a break. If no break appears, the flow of control will fall through to subsequent cases until a break is reached.
     switch (errorCode.integerValue) {
         case 100: //this is just an assumed error code
             code = error1;
